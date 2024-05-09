@@ -15,7 +15,7 @@
             justify-content: center;
         }
         .content {
-            max-width: 100%; /* Ensure the content does not exceed the viewport width */
+            max-width: 100%; /* Ensure content does not exceed viewport width */
             width: 100%;
             text-align: left;
             box-sizing: border-box;
@@ -67,17 +67,20 @@
         }
         /* Slideshow container */
         .slideshow-container {
-          max-width: 100%; /* Adjust width to never exceed the screen width */
+          max-width: 100%;
           position: relative;
           margin: auto;
           overflow: hidden;
-          height: 7.5%; /* Maintain the smaller height */
+          display: flex; /* Use flex to center slides */
+          justify-content: center; /* Center slides horizontally */
+          align-items: center; /* Center slides vertically */
+          height: 7.5%;
         }
         /* Slides setup */
         .mySlides {
-          display: inline-block; /* Show multiple slides at once */
-          width: 33.33%; /* Adjust to fit three slides within the viewable area */
-          height: auto; /* Maintain aspect ratio of images */
+          display: inline-block;
+          width: 33.33%;
+          height: auto;
           margin-right: 2%;
         }
         .prev, .next {
@@ -94,12 +97,10 @@
           border-radius: 0 3px 3px 0;
           user-select: none;
         }
-        /* Position the "next button" to the right */
         .next {
           right: 0;
           border-radius: 3px 0 0 3px;
         }
-        /* On hover, add a black background color with a little bit see-through */
         .prev:hover, .next:hover {
           background-color: rgba(0,0,0,0.8);
         }
@@ -109,10 +110,10 @@
                 padding: 10px;
             }
             .mySlides {
-                width: 100%; /* Adjust to fill the screen for a clear view on mobile */
+                width: 100%; /* Fill screen on mobile for clarity */
             }
             .slideshow-container {
-                height: 15%; /* Increase height slightly for better viewability */
+                height: 15%; /* Adjust for mobile viewability */
             }
         }
     </style>
@@ -141,7 +142,7 @@
             <div class="mySlides fade">
                 <img src="MultiplayerGamePlay.png" style="width:100%; height:auto;">
             </div>
-            <div the="mySlides fade">
+            <div class="mySlides fade">
                 <img src="MultiplayerScoreBoard.png" style="width:100%; height:auto;">
             </div>
             <div class="mySlides fade">
@@ -153,7 +154,7 @@
             <div class="mySlides fade">
                 <img src="StoryModeRiding.png" style="width:100%; height:auto;">
             </div>
-            <div class="mySlides fade">
+            <div the="mySlides fade">
                 <img src="TutorialMode.png" style="width:100%; height:auto;">
             </div>
             <div class="mySlides fade">
@@ -189,17 +190,16 @@
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
-            slides[i]. style.display = "none";
+            slides[i].style.display = "none";
         }
         for (i = 0; i < 3 && slideIndex-1 + i < slides.length; i++) {
             slides[slideIndex-1 + i].style.display = "inline-block";
         }
       }
 
-      // Auto cycle through slides
       setInterval(function() {
         plusSlides(1);
-      }, 1000);  // Change slide every 3 seconds
+      }, 1000); 
     </script>
 </body>
 </html>
