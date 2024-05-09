@@ -70,22 +70,23 @@
           max-width: 600px;
           position: relative;
           margin: auto;
-          overflow: hidden;
+          overflow: hidden;  /* Ensure no overflow outside of the container */
         }
         /* Slides setup */
         .slide-track {
-            width: calc(300% + 100px); /* Total width needed for smooth looping */
+            display: flex; /* Ensures slides are in a single row */
+            width: calc(900% + 300px); /* Adjust width to fit more slides for smooth looping */
             animation: slide 60s linear infinite;
         }
         .mySlides {
-            float: left;
-            width: calc(100% / 3); /* Three slides visible at once */
-            margin-right: 2%;
+            flex: 0 0 25%; /* Keep slide size fixed and show smaller size */
+            margin-right: 1%; /* Small margin between slides */
             box-sizing: border-box;
+            transition: transform 1s ease; /* Smooth transition for resizing */
         }
         @keyframes slide {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-33.33%); } /* Looping over a third each cycle */
+            100% { transform: translateX(-100%); } /* Looping over 100% of its width */
         }
         @media (max-width: 600px) {
             .content, .additional-info {
@@ -93,10 +94,10 @@
                 padding: 10px;
             }
             .mySlides {
-                width: 75%; /* Adjust for small screens */
+                flex: 0 0 50%; /* Larger size for better visibility on small screens */
             }
             .slide-track {
-                animation-duration: 40s;
+                animation-duration: 40s; /* Adjust timing for faster movement on small screens */
             }
         }
     </style>
@@ -112,6 +113,7 @@
         </div>
         <div class="slideshow-container">
             <div class="slide-track">
+                <!-- Include enough slides for smooth looping -->
                 <div class="mySlides fade"><img src="HomePage.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="LogIn.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="MultiplayerFriends.png" style="width:100%"></div>
@@ -122,7 +124,7 @@
                 <div class="mySlides fade"><img src="StoryModeRiding.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="TutorialMode.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="TutorialModeBidding.png" style="width:100%"></div>
-                <!-- Repeat for smooth looping -->
+                <!-- Repeat slides for a smooth looping effect -->
                 <div class="mySlides fade"><img src="HomePage.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="LogIn.png" style="width:100%"></div>
                 <div class="mySlides fade"><img src="MultiplayerFriends.png" style="width:100%"></div>
