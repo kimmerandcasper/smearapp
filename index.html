@@ -71,31 +71,45 @@
           position: relative;
           margin: auto;
           overflow: hidden; /* Ensure no overflow outside of the container */
-          height: 100px; /* Fixed height for consistent display */
         }
-        /* Slides setup */
-        .slide-track {
-            display: flex; /* Ensures slides are in a single row */
-            width: calc(900% + 300px); /* Adjust width to fit more slides for smooth looping */
-            animation: slide 60s linear infinite;
+        /* Hide the images by default */
+        .mySlides {
+          display: inline-block; /* Show multiple slides at once */
+          width: 25%; /* Reduce each image to 25% of the container's width */
+          margin-right: 2%; /* Add space between the images */
+        }
+        /* Add a pointer when hovering over the previous and next buttons */
+        .prev, .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        /* Adjust the slideshow to display three images at once, centered */
+        .slideshow-container {
+            text-align: center; /* Center the slides inside the container */
+            padding: 0 40px; /* Add padding for the arrows */
         }
         .mySlides {
-            flex: 0 0 25%; /* Keep slide size fixed and show smaller size */
-            margin-right: 1%; /* Small margin between slides */
-            box-sizing: border-box;
-            transition: transform 1s ease; /* Smooth transition for resizing */
-            height: 100%; /* Set height to fill the container */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .mySlides img {
-            height: 100%; /* Fit image within slide height */
-            width: auto; /* Maintain aspect ratio */
-        }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); } /* Looping over 100% of its width */
+            width: calc(33.33% - 4px); /* Adjust for three slides */
+            margin: 0; /* Remove margin between slides */
         }
         @media (max-width: 600px) {
             .content, .additional-info {
@@ -103,14 +117,10 @@
                 padding: 10px;
             }
             .mySlides {
-                flex: 0 0 33.33%; /* Adjust for mobile screens to show three slides */
-                margin-right: 0;
-            }
-            .slide-track {
-                animation-duration: 40s; /* Adjust timing for faster movement on small screens */
+                width: 75%; /* Larger size for better visibility on small screens */
             }
             .slideshow-container {
-                padding: 0; /* Remove padding for mobile */
+                padding: 0 20px; /* Adjust padding for smaller screens */
             }
         }
     </style>
@@ -118,42 +128,60 @@
 <body>
     <div class="content">
         <img src="SmearIcon.png" alt="Smear App Logo" class="logo">
-        <div class="mission-statement">Keeping the wonderful card game Smear alive with chickens!</div>
+        <div class="mission-statement">
+            Keeping the wonderful card game Smear alive with chickens!
+        </div>
         <hr>
-        <div class="contact-info">Sponsored by Mouse Pup at <a href="mailto:mousepuptechnology@gmail.com">mousepuptechnology@gmail.com</a></div>
+        <div class="contact-info">
+            Sponsored by Mouse Pup at <a href="mailto:mousepuptechnology@gmail.com">mousepuptechnology@gmail.com</a>
+        </div>
         <div class="additional-info">
-            Currently in the testing phase, Smear.app is a four-player online traditional card game featuring a fantastic animated theme with barn mice and chickens. It utilizes Swift code, WebSocket protocols, and a great Sysync architecture. The code files are publicly available in the repository at <a href="https://github.com/kimmerandcasper/smearapp/tree/main">https://github.com/kimmerandcasper/smearapp/tree/main</a>
+            Currently in the testing phase, Smear.app is a four-player online traditional card game featuring a fantastic animated theme with barn mice and chickens. It utilizes Swift code, WebSocket protocols, and a great Sysync architecture. The code files are publicly available in the repository at <a href="https://github.com/kimmerandcasper/smearapp/tree/main">https://github.com/kimmerandcasper/smearapp/tree/main</a> Below are some more Smear.app screenshots. And Below that is a demo video.
         </div>
         <div class="slideshow-container">
-            <div class="slide-track">
-                <div class="mySlides fade"><img src="HomePage.png"></div>
-                <div class="mySlides fade"><img src="LogIn.png"></div>
-                <div class="mySlides fade"><img src="MultiplayerFriends.png"></div>
-                <div class="mySlides fade"><img src="MultiplayerGamePlay.png"></div>
-                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png"></div>
-                <div class="mySlides fade"><img src="Settings.png"></div>
-                <div class="mySlides fade"><img src="StoryMode.png"></div>
-                <div class="mySlides fade"><img src="StoryModeRiding.png"></div>
-                <div class="mySlides fade"><img src="TutorialMode.png"></div>
-                <div class="mySlides fade"><img src="TutorialModeBidding.png"></div>
-                <!-- Repeat for smooth loop -->
-                <div class="mySlides fade"><img src="HomePage.png"></div>
-                <div class="mySlides fade"><img src="LogIn.png"></div>
-                <div class="mySlides fade"><img src="MultiplayerFriends.png"></div>
-                <div the="mySlides fade"><img src="MultiplayerGamePlay.png"></div>
-                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png"></div>
-                <div the="mySlides fade"><img src="Settings.png"></div>
-                <div the="mySlides fade"><img src="StoryMode.png"></div>
-                <div the="mySlides fade"><img src="StoryModeRiding.png"></div>
-                <div the="mySlides fade"><img src="TutorialMode.png"></div>
-                <div the="mySlides fade"><img src="TutorialModeBidding.png"></div>
-            </div>
+          <div class="mySlides fade">
+            <img src="HomePage.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="LogIn.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="MultiplayerFriends.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="MultiplayerGamePlay.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="MultiplayerScoreBoard.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="Settings.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="StoryMode.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="StoryModeRiding.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="TutorialMode.png" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="TutorialModeBidding.png" style="width:100%">
+          </div>
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        <div class="additional-info">Below is a demo preview of the iOS application, currently in the testing phase.</div>
+        <div class="additional-info">
+            Below is a demo preview of the iOS application, currently in the testing phase.
+        </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/xqagRQ7KH4k?autoplay=0&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3&fs=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <div the="additional-info">If you'd like to be a tester, visit KimmerOReilly.com and email the lead software engineer.</div>
+        <div class="additional-info">
+            If you'd like to be a tester, visit KimmerOReilly.com and email the lead software engineer.
+        </div>
         <img src="HapticSS.PNG" alt="Haptic iOS v1 (Basic Software Prototype)" class="iphone-img">
     </div>
     <script>
