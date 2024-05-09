@@ -71,7 +71,7 @@
           position: relative;
           margin: auto;
           overflow: hidden; /* Ensure no overflow outside of the container */
-          height: 15%; /* Reduce the height of the slideshow container */
+          height: 100px; /* Fixed height for consistent display */
         }
         /* Slides setup */
         .slide-track {
@@ -85,8 +85,14 @@
             box-sizing: border-box;
             transition: transform 1s ease; /* Smooth transition for resizing */
             height: 100%; /* Set height to fill the container */
-            /* Set max-height to fit the images within the slideshow */
-            max-height: 100px; /* Adjust this value based on your specific layout */
+            /* Ensure image fits fully inside each slide */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mySlides img {
+            height: 100%; /* Fit image within slide height */
+            width: auto; /* Maintain aspect ratio */
         }
         @keyframes slide {
             0% { transform: translateX(0); }
@@ -118,27 +124,27 @@
         <div class="slideshow-container">
             <div class="slide-track">
                 <!-- Include enough slides for smooth looping -->
-                <div class="mySlides fade"><img src="HomePage.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="LogIn.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerFriends.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerGamePlay.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="Settings.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="StoryMode.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="StoryModeRiding.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="TutorialMode.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="TutorialModeBidding.png" style="width:100%; height:auto;"></div>
+                <div class="mySlides fade"><img src="HomePage.png"></div>
+                <div class="mySlides fade"><img src="LogIn.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerFriends.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerGamePlay.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png"></div>
+                <div class="mySlides fade"><img src="Settings.png"></div>
+                <div class="mySlides fade"><img src="StoryMode.png"></div>
+                <div class="mySlides fade"><img src="StoryModeRiding.png"></div>
+                <div class="mySlides fade"><img src="TutorialMode.png"></div>
+                <div class="mySlides fade"><img src="TutorialModeBidding.png"></div>
                 <!-- Repeat slides for a smooth looping effect -->
-                <div class="mySlides fade"><img src="HomePage.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="LogIn.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerFriends.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerGamePlay.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="Settings.png" style="width:100%; height:auto;"></div>
-                <div the="mySlides fade"><img src="StoryMode.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="StoryModeRiding.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="TutorialMode.png" style="width:100%; height:auto;"></div>
-                <div class="mySlides fade"><img src="TutorialModeBidding.png" style="width:100%; height:auto;"></div>
+                <div class="mySlides fade"><img src="HomePage.png"></div>
+                <div class="mySlides fade"><img src="LogIn.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerFriends.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerGamePlay.png"></div>
+                <div class="mySlides fade"><img src="MultiplayerScoreBoard.png"></div>
+                <div class="mySlides fade"><img src="Settings.png"></div>
+                <div class="mySlides fade"><img src="StoryMode.png"></div>
+                <div class="mySlides fade"><img src="StoryModeRiding.png"></div>
+                <div class="mySlides fade"><img src="TutorialMode.png"></div>
+                <div class="mySlides fade"><img src="TutorialModeBidding.png"></div>
             </div>
         </div>
         <div class="additional-info">Below is a demo preview of the iOS application, currently in the testing phase.</div>
