@@ -73,7 +73,9 @@
         }
         /* Hide the images by default */
         .mySlides {
-          display: none;
+          display: inline-block; /* Show multiple slides at once */
+          width: 25%; /* Reduce each image to 25% of the container's width */
+          margin-right: 2%; /* Add space between the images */
         }
         /* Add a pointer when hovering over the previous and next buttons */
         .prev, .next {
@@ -103,6 +105,9 @@
             .content, .additional-info {
                 font-size: 14px;
                 padding: 10px;
+            }
+            .mySlides {
+                width: 75%; /* Larger size for better visibility on small screens */
             }
         }
     </style>
@@ -183,7 +188,9 @@
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        slides[slideIndex-1].style.display = "block";
+        for (i = 0; i < 3 && slideIndex-1 + i < slides.length; i++) {
+            slides[slideIndex-1 + i].style.display = "inline-block";
+        }
       }
     </script>
 </body>
